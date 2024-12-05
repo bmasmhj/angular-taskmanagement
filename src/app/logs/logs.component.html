@@ -1,0 +1,31 @@
+<div class="overflow-hidden absolute h-screen shadow-2xl bg-white p-4 top-0 right-[-300px] w-[500px] z-[19] transition-all duration-300 ease-in-out hover:right-0" >
+    <h6 class="text-xl font-semibold mb-2">
+        Logs
+    </h6>
+    <ul class="flex flex-col items-start justify-start max-h-[90vh] overflow-auto">
+        <li class="mb-2 flex items-center border-b py-2 w-full" 
+        *ngFor="let logData of logData" >
+            <i class="fas text-white p-2 rounded-md" 
+                [ngClass]="{
+                    'fa-plus bg-green-500': logData.action === 'added',
+                    'fa-trash bg-red-500': logData.action === 'deleted',
+                    'fa-edit bg-blue-500': logData.action === 'edit',
+                    'fa-arrows-up-down-left-right bg-yellow-400': logData.action === 'moved',
+                    'fa-right-left bg-purple-400' : logData.action === 'changed'
+                }"
+            ></i>
+
+            <div class="ml-2">
+                <span class="font-semibold">{{logData.val}} </span>
+                <span>{{logData.action}}</span>
+                <span  *ngIf="logData.action !== 'added'"> from <span class="font-semibold">{{logData.from}}</span> </span>
+                <!-- if  -->
+                <span *ngIf="logData.action !== 'deleted'"> to <span class="font-semibold">{{logData.to}}</span></span>
+            </div>
+            
+        </li>
+        <ng-template #noTasks>
+            <p>No logs yet</p>
+          </ng-template>
+    </ul>
+</div>
