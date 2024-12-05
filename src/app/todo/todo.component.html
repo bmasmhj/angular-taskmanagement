@@ -1,0 +1,31 @@
+<div class="todo-app">
+    <div class="add-task">
+        <input type="text" [(ngModel)]="task" (keyup.enter)="addTask()" placeholder="Add Backlog">
+        <button (click)="addTask()">Add</button>
+        
+    </div>
+    <div class="todo-card">
+        <ul class="task-group"  *ngIf="tasks.length > 0; else noTasks">
+            <input type="checkbox" (change)="toggleAllTask()" name="" id="">
+            <li *ngFor="let task of tasks" class="task-list">
+                <div class="flex gap-2">
+                    <input type="checkbox" (change)="toggleTask(task.id)">
+                    <span >{{ task.name }}</span>
+
+                </div>
+                <div class="flex gap-2">
+                    <button (click)="moveToTodoTask(task.id)">
+                        <i class="fas fa-file-import"></i>
+                    </button>
+                    <button (click)="deleteTask(task.id)">
+                        <i class="fas fa-trash text-red-400"></i>
+                    </button>
+                </div>
+            </li>
+          </ul>
+    </div>
+    <ng-template #noTasks>
+    <p>No tasks yet</p>
+  </ng-template>
+  </div>
+  
