@@ -1,0 +1,10 @@
+<button class="w-full h-full" [ngClass]="{
+        'bg-red-100': value === 'X',
+        'bg-blue-100': value === 'O'
+        }">
+    <i [ngClass]="{
+        'fa-x': value === 'X',
+        'fa-o': value === 'O'
+      }" class="fa-solid"></i>
+  </button>
+  
