@@ -1,0 +1,48 @@
+<div cdkDropListGroup>
+    <div class="example-container">
+        <h2>To do</h2>
+
+        <div cdkDropList [cdkDropListData]="task.todo" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of task.todo" cdkDrag>
+                <span>
+                    {{item.name}}
+                </span>
+                <button (click)="deleteItem(item.id , 'todo')">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="example-container">
+        <h2>In Progress</h2>
+
+        <div cdkDropList [cdkDropListData]="task.inProgress" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of task.inProgress" cdkDrag>
+                <span>
+                    {{item.name}}
+                </span>
+                <button (click)="deleteItem(item.id , 'inProgress')">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="example-container">
+        <h2>Done</h2>
+
+        <div cdkDropList [cdkDropListData]="task.done" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of task.done " cdkDrag>
+                <span>
+                    {{item.name}}
+                </span>
+                <button (click)="deleteItem(item.id , 'done')">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
