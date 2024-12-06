@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from './todo.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-todo',
@@ -10,7 +11,7 @@ export class TodoComponent implements OnInit {
   task: string = '';
   tasks: { id: number, name: string}[] = [];
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService , private translate: TranslateService) {}
 
   ngOnInit(): void {
     // Subscribe to task updates

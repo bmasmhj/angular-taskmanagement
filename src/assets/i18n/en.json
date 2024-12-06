@@ -11,5 +11,7 @@
     "todo": "To Do",
     "inprogress": "In Progress",
     "done": "Done",
-    "logout": "Logout"
+    "logout": "Logout",
+    "add" : "Add",
+    "addbacklog" : "Add Backlog"
  }
