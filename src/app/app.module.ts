@@ -15,6 +15,17 @@ import { KanbanBoardListComponent } from './kanban/board-list/board-list.compone
 import { StoreModule } from '@ngrx/store';
 import { LogsComponent } from './logs/logs.component';
 import { NavComponent } from './nav/nav.component';
+import { CropperComponent } from './cropper/cropper.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { LoginComponent } from './auth/login/login.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');  // Path to your JSON files
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +37,10 @@ import { NavComponent } from './nav/nav.component';
     KanbanBoardComponent,
     KanbanBoardListComponent,
     LogsComponent,
-    NavComponent
+    NavComponent,
+    CropperComponent,
+    LoginComponent,
+    
     
   ],
   imports: [
@@ -34,7 +48,16 @@ import { NavComponent } from './nav/nav.component';
     FormsModule,
     AppRoutingModule,
     DragDropModule,
-    StoreModule.forRoot({}, {})
+    HttpClientModule,
+    ImageCropperModule,
+    StoreModule.forRoot({}, {}),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
     
   ],
   providers: [TodoService],

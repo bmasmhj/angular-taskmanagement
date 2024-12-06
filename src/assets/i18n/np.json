@@ -1,0 +1,18 @@
+{
+    "backlog" : "पिछला काम",
+    "scrumboard" : "स्क्रम बोर्ड",
+    "tictactoe" : "टिक टैक टो",
+    "logs": {
+        "added": "<span class='font-semibold'>{{val}}</span> <span class='font-semibold'>{{to}}</span> मा थपियो",
+        "deleted": "<span class='font-semibold'>{{val}}</span> <span class='font-semibold'>{{from}}</span> बाट हटाइयो",
+        "changed": "<span class='font-semibold'>{{val}}</span> <span class='font-semibold'>{{from}}</span> बाट <span class='font-semibold'>{{to}}</span> मा परिवर्तन गरियो",
+        "moved": "<span class='font-semibold'>{{val}}</span> <span class='font-semibold'>{{from}}</span> बाट <span class='font-semibold'>{{to}}</span> मा सारियो"
+    },
+    "todo": "गर्न गर्नुपर्ने काम",
+    "inprogress": "काम जारी",
+    "done": "सकिएको काम",
+    "add" : "थप्नुहोस्",
+    "logout": "बाहिर निस्कनुहोस्",
+    "addbacklog" : "पिछला काम थप्नुहोस्"
+    
+}

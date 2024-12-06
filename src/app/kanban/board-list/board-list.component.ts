@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { BehaviorSubject } from 'rxjs';
 import { StorageType, TaskType } from 'src/app/todo/todo.service';
 import { KanbanBoardListService } from './board-list.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-kanban-board-list',
@@ -21,7 +22,7 @@ export class KanbanBoardListComponent implements OnInit {
       inProgress: [],
       done: [],
   }
-  constructor(private todoService: KanbanBoardListService) {}
+  constructor(private todoService: KanbanBoardListService ,  private translate: TranslateService) {}
 
   ngOnInit(): void {
     this.todoService.tasks$.subscribe((tasks) => {

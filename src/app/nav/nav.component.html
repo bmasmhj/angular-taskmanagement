@@ -25,7 +25,7 @@
             </svg>
           </button>
         </div>
-        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-1 items-center md:justify-between w-full sm:items-stretch sm:justify-start">
          
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
@@ -35,18 +35,46 @@
               <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
               <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a> -->
               <!-- navigations  loop -->
-              <a *ngFor="let nav of navigations" [routerLink]="nav.link" routerLinkActive="bg-gray-900 text-white" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">{{nav.label}}</a> 
+              <a *ngFor="let nav of navigations" [routerLink]="nav.link" routerLinkActive="bg-gray-900 text-white" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">{{nav.label | translate}}</a> 
             </div>
+          </div>
+           <!-- logout -->
+
+            
+          <div *ngIf="hasLogin" class="md:flex hidden gap-2  items-center justify-center">
+            <select (change)="switchLanguage($event)"  class="bg-gray-900 text-white py-2 rounded-md">
+              <option *ngFor="let lang of languages" [value]="lang" [selected]="lang === currentLanguage">{{ lang }}</option>
+            </select>
+            
+            <button (click)="logout()" class="bg-red-500 text-white px-4 py-2 rounded-md">
+              {{ 'logout' | translate}}
+              <i class="fas fa-sign-out-alt"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
-  
+    
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a *ngFor="let nav of navigations" [routerLink]="nav.link" routerLinkActive="bg-gray-900 text-white" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">{{nav.label}}</a>
+        <a *ngFor="let nav of navigations" [routerLink]="nav.link" routerLinkActive="bg-gray-900 text-white" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">{{nav.label | translate}}</a>
+        <select (change)="switchLanguage($event)" class="bg-gray-900 text-white py-2 rounded-md">
+          <option *ngFor="let lang of languages" [value]="lang" [selected]="lang === currentLanguage">{{ lang }}</option>
+        </select>
+        
+      </div>
+      
+      <div *ngIf="hasLogin" class="flex px-2 pb-3  items-center justify-start">
+        <button (click)="logout()" class="bg-red-500 text-white px-4 py-2 rounded-md">
+          {{ 'logout' | translate}}
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
       </div>
     </div>
+
+
+   
+
   </nav>

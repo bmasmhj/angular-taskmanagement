@@ -1,7 +1,7 @@
 <div class="todo-app">
     <div class="add-task">
-        <input type="text" [(ngModel)]="task" (keyup.enter)="addTask()" placeholder="Add Backlog">
-        <button (click)="addTask()">Add</button>
+        <input type="text" [(ngModel)]="task" (keyup.enter)="addTask()" placeholder="{{ 'addbacklog' | translate }}">
+        <button (click)="addTask()">{{'add' | translate}}</button>
         
     </div>
     <div class="todo-card">
@@ -28,4 +28,5 @@
     <p>No tasks yet</p>
   </ng-template>
   </div>
-  
+
+<app-logs></app-logs>

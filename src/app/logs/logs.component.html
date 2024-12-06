@@ -15,13 +15,7 @@
                 }"
             ></i>
 
-            <div class="ml-2">
-                <span class="font-semibold">{{logData.val}} </span>
-                <span>{{logData.action}}</span>
-                <span  *ngIf="logData.action !== 'added'"> from <span class="font-semibold">{{logData.from}}</span> </span>
-                <!-- if  -->
-                <span *ngIf="logData.action !== 'deleted'"> to <span class="font-semibold">{{logData.to}}</span></span>
-            </div>
+            <span class="ms-2" [innerHTML]="translateLog(logData)"></span>
             
         </li>
         <ng-template #noTasks>

@@ -1,0 +1,15 @@
+ {
+    "backlog": "Backlog",
+    "scrumboard": "Scrum Board",
+    "tictactoe": "Tic Tac Toe",
+    "logs": {
+        "added": "<span class='font-semibold'>{{val}}</span> added to <span class='font-semibold'>{{to}}</span>",
+        "deleted": "<span class='font-semibold'>{{val}}</span> deleted from <span class='font-semibold'>{{from}}</span>",
+        "changed": "<span class='font-semibold'>{{val}}</span> changed from <span class='font-semibold'>{{from}}</span> to <span class='font-semibold'>{{to}}</span>",
+        "moved": "<span class='font-semibold'>{{val}}</span> moved from <span class='font-semibold'>{{from}}</span> to <span class='font-semibold'>{{to}}</span>"
+    },
+    "todo": "To Do",
+    "inprogress": "In Progress",
+    "done": "Done",
+    "logout": "Logout"
+ }
